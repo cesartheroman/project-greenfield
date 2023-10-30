@@ -3,15 +3,21 @@ import React from 'react';
 // import { getReviews } from '../../../actions/ReviewActions/actions';
 
 type Review = {
+  review_id: number;
   rating: number;
-  reviewer_name: string;
-  date: string;
   summary: string;
+  recommend: number;
+  response: string;
   body: string;
-  recommend: boolean;
-  response: boolean;
-  photos: Record<string, string>[];
-  helpfulness: boolean;
+  date: string;
+  reviewer_name: string;
+  helpfulness: number;
+  photos: Photo[];
+};
+
+type Photo = {
+  id: number;
+  url: string;
 };
 
 type SortingViewProps = {

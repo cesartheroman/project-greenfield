@@ -4,6 +4,8 @@ import AddReview from './AddReview';
 import SortingView from './SortingView';
 import Button from 'react-bootstrap/Button';
 
+import reviews from '../../../../data/reviews';
+
 type ReviewListProps = {
   productId: number;
   reviews: Review[];
@@ -14,15 +16,21 @@ type ReviewListProps = {
 };
 
 type Review = {
+  review_id: number;
   rating: number;
-  reviewer_name: string;
-  date: string;
   summary: string;
+  recommend: number;
+  response: string;
   body: string;
-  recommend: boolean;
-  response: boolean;
-  photos: Record<string, string>[];
-  helpfulness: boolean;
+  date: string;
+  reviewer_name: string;
+  helpfulness: number;
+  photos: Photo[];
+};
+
+type Photo = {
+  id: number;
+  url: string;
 };
 
 const ReviewsList: React.FC<ReviewListProps> = ({

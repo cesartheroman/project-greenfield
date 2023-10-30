@@ -8,5 +8,5 @@ describe('RatingsAndReviews', () => {
   //   const { getByText } = render(<RatingsAndReviews />);
   //   expect(getByText('Ratings & Reviews')).toBeInTheDocument();
   // });
-  it.todo('test');
+  it.todo('');
 });

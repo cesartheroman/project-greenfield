@@ -86,14 +86,8 @@ const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({
 
   return (
     <div>
-      <h6>Ratings & Reviews</h6>
       <RatingSummary avgRatings={avgRatings} />
-      <br />
-      <div>
-        {avgRecPercent.toFixed(0) !== 'NaN' ? avgRecPercent.toFixed(0) : 0}% of
-        reviews recommend this product
-      </div>
-      <br />
+
       <StarBreakdown
         changeView={changeView}
         stars={stars}
@@ -101,8 +95,8 @@ const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({
         numOfRatings={numOfRatings}
         handleClick={handleClick}
       />
-      <br />
-      <CharBreakdown characteristics={characteristics} />
+
+      <CharBreakdown />
     </div>
   );
 };

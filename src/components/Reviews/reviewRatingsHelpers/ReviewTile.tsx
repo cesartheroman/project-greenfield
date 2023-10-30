@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Check2 } from 'react-bootstrap-icons';
-import Modal from 'react-bootstrap/Modal';
 import Stars from './Stars';
 import { getDate } from '../../../utils/reviewHelpers';
 
 type Review = {
+  review_id: number;
   rating: number;
-  reviewer_name: string;
-  date: string;
   summary: string;
+  recommend: number;
+  response: string;
   body: string;
-  recommend: boolean;
-  response: boolean;
-  photos: Record<string, string>[];
-  helpfulness: boolean;
+  date: string;
+  reviewer_name: string;
+  helpfulness: number;
+  photos: Photo[];
+};
+
+type Photo = {
+  id: number;
+  url: string;
 };
 
 type ReviewTileProps = {
@@ -60,6 +64,7 @@ const ReviewTile: React.FC<ReviewTileProps> = ({ reviews }) => {
   };
 
   return (
+    //TODO: Instead of receiving all reviews and mapping over them, the review tile should only have to manage one review at a time
     <div className="review-tile">
       {reviews.map((review, i) => {
         return (
@@ -78,14 +83,7 @@ const ReviewTile: React.FC<ReviewTileProps> = ({ reviews }) => {
             </p>
             <br />
             <p>{review.body}</p>
-            {review.recommend && (
-              <p>
-                <span>
-                  <Check2 />
-                </span>{' '}
-                I recommend this product
-              </p>
-            )}
+            {review.recommend && <p>I recommend this product</p>}
             {review.response && (
               <div className="response">
                 <strong>Reponse:</strong> {review.response}
@@ -107,12 +105,6 @@ const ReviewTile: React.FC<ReviewTileProps> = ({ reviews }) => {
                         }}
                         onClick={(e) => showModal(e)}
                       ></img>
-                      <Modal show={show} onHide={closeModal}>
-                        <Modal.Header closeButton></Modal.Header>
-                        <Modal.Body>
-                          <img src={photo.url} className="img-fluid"></img>
-                        </Modal.Body>
-                      </Modal>
                     </React.Fragment>
                   );
                 })}
