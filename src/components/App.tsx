@@ -3,13 +3,13 @@
 // import Questions from './questions/Questions';
 // import ProductInfo from './overviewComponents/productInfo';
 // import RatingsAndReviews from './Reviews/RatingsAndReviews';
-import React from 'react';
-import RatingsAndReviews from './Reviews/RatingsAndReviews';
+import React from "react";
+import RatingsAndReviews from "./Reviews/RatingsAndReviews";
+import "./app.css";
 
 const App: React.FC = () => (
   <div>
-    <h1>Hi there!</h1>
-    <RatingsAndReviews name={'test'} productId={1} />
+    <RatingsAndReviews name={"test"} productId={1} />
   </div>
 );
 

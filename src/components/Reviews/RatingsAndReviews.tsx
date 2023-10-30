@@ -4,6 +4,32 @@ import RatingsBreakdown from './reviewRatingsHelpers/RatingsBreakdown';
 import ReviewsList from './reviewRatingsHelpers/ReviewsList';
 // import './reviewsStyle.css';
 import reviews from '../../../data/reviews';
+import { CharBreakdown } from './reviewRatingsHelpers/CharBreakdown';
+
+type ReviewPayload = {
+  product: string;
+  page: number;
+  count: number;
+  results: Review[];
+};
+
+type Review = {
+  review_id: number;
+  rating: number;
+  summary: string;
+  recommend: boolean;
+  response: boolean;
+  body: string;
+  date: string;
+  reviewer_name: string;
+  helpfulness: number;
+  photos: Photos[];
+};
+
+type Photos = {
+  id: number;
+  url: string;
+};
 
 type RatingsAndReviewsProps = {
   name: string;
@@ -116,7 +142,16 @@ const RatingsAndReviews: React.FC<RatingsAndReviewsProps> = ({
           handleClick={handleClick}
         />
       </div>
-      <div className="reviewsList">{renderView()}</div>
+
+      {/* <div className="reviewsList">{renderView()}</div> */}
+      <ReviewsList
+        productId={1}
+        reviews={reviews.results}
+        show={false}
+        clickHandler={() => console.log('click handled!')}
+        loadMoreReviews={() => console.log('more reviews loaded')}
+        name={'test'}
+      />
     </div>
   );
 };

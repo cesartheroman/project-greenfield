@@ -1,5 +1,6 @@
 import React from 'react';
-import ProgressBar from 'react-bootstrap/ProgressBar';
+
+// import ProgressBar from 'react-bootstrap/ProgressBar';
 // import '../reviewsStyle.css';
 
 type StarBreakdownProps = {
@@ -19,24 +20,30 @@ const StarBreakdown: React.FC<StarBreakdownProps> = ({
 }) => (
   <>
     <div className="starBarContainer">
-      {[5, 4, 3, 2, 1].map((star, i) => {
-        // let amount = ratings[star] || 0;
-        let totalReviews = numOfRatings || 0;
-        // let percentage = (amount / totalReviews) * 100;
-        return (
-          <React.Fragment key={i}>
-            <span
-              className="progress-label-left"
-              onClick={(e) => handleClick(e)}
-            >
-              {star} stars
-            </span>
-            <span className="progress-label-right">{1}</span>
-            <ProgressBar now={1} variant="success" />
-            <br />
-          </React.Fragment>
-        );
-      })}
+      <div>
+        {/* {avgRecPercent.toFixed(0) !== 'NaN' ? avgRecPercent.toFixed(0) : 0} */}
+        0% of reviews recommend this product
+      </div>
+      <div className="progress-label-left" onClick={(e) => handleClick(e)}>
+        5 stars
+        <progress className="progress w-56" value={40} max={100}></progress>
+      </div>
+      <div className="progress-label-left" onClick={(e) => handleClick(e)}>
+        4 stars
+        <progress className="progress w-56" value={40} max={100}></progress>
+      </div>
+      <div className="progress-label-left" onClick={(e) => handleClick(e)}>
+        3 stars
+        <progress className="progress w-56" value={40} max={100}></progress>
+      </div>
+      <div className="progress-label-left" onClick={(e) => handleClick(e)}>
+        2 stars
+        <progress className="progress w-56" value={40} max={100}></progress>
+      </div>
+      <div className="progress-label-left" onClick={(e) => handleClick(e)}>
+        1 stars
+        <progress className="progress w-56" value={40} max={100}></progress>
+      </div>
     </div>
     {filtered && (
       <>

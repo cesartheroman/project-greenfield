@@ -8,13 +8,14 @@ type RatingSummaryProps = {
 const RatingSummary: React.FC<RatingSummaryProps> = ({ avgRatings }) => {
   return (
     <div>
-      <div style={{ display: 'flex' }}>
-        <span style={{ fontSize: 45, display: 'inline-block' }}>
-          {avgRatings.toFixed(1)}{' '}
-        </span>{' '}
-        <span style={{ display: 'inline-block' }}>
-          <Stars rating={avgRatings} />
-        </span>
+      <h6>RATINGS & REVIEWS</h6>
+      {/*TODO: Handle styling through Tailwind*/}
+      <div
+        className="avgRatings-stars-container"
+        style={{ display: 'flex', justifyContent: 'flex-start' }}
+      >
+        <span style={{ fontSize: 45 }}>{avgRatings.toFixed(1)}</span>
+        <Stars rating={avgRatings} />
       </div>
     </div>
   );
