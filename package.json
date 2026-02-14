@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/Team-Pulsar/project-greenfield#readme",
   "dependencies": {
-    "axios": "^1.4.0",
+    "axios": "^1.13.5",
     "bootstrap": "^5.3.0",
-    "express": "^4.18.2",
+    "express": "^4.22.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ratings-declarative": "^3.4.1",
